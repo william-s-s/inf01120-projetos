@@ -1,0 +1,65 @@
+{
+    "NOTES_TRANSLATIONS": {
+        "A": "Lá",
+        "a": "Lá",
+        "B": "Si",
+        "b": "Si",
+        "C": "Dó",
+        "c": "Dó",
+        "D": "Ré",
+        "d": "Ré",
+        "E": "Mi",
+        "e": "Mi",
+        "F": "Fá",
+        "f": "Fá",
+        "G": "Sol",
+        "g": "Sol"
+    },
+
+    "SPECIAL_COMMANDS":{
+        " ": "silence",
+        "+": "double_volume",
+        "-": "default_volume",
+        "O": "repeat_note",
+        "o": "repeat_note",
+        "I": "repeat_note",
+        "i": "repeat_note",
+        "U": "repeat_note",
+        "u": "repeat_note",
+        "R+": "octave_up",
+        "R-": "octave_down",
+        "?": "random_note",
+        "\n": "change_instrument",
+        "BPM+": "increase_bpm",
+        ";": "random_bpm"
+    },
+
+    "NOTES": {
+        "Lá": 21,
+        "Si": 23,
+        "Dó": 24,
+        "Ré": 26,
+        "Mi": 28,
+        "Fá": 29,
+        "Sol": 31
+    },
+
+    "INSTRUMENTS": {
+        "0": "Piano",
+        "13": "Xilofone",
+        "19": "Órgão de Tubos",
+        "24": "Guitarra de Cordas de Nylon",
+        "32": "Contrabaixo",
+        "40": "Violino",
+        "48": "Orquestra de Cordas",
+        "56": "Trompete",
+        "64": "Saxofone Soprano",
+        "79": "Ocarina",
+        "81": "Onda Dente de Serra",
+        "90": "Polysynth",
+        "100": "Brilhos",
+        "105": "Banjo",
+        "112": "Sino",
+        "125": "Telefone"
+    }
+}
