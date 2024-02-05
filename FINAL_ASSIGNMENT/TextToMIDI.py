@@ -87,12 +87,12 @@ while True:
             if filename[-4:] != ".mid":
                 filename = filename + ".mid"
             file_path = folder + "/" + filename
-            #try:
-            midi_creator.generateMIDIFile(file_path, text)
-            #except:
-            #    gi.popup_ok("Error: File didn't generate")
-            #else:
-            gi.popup_ok("File generated successfully")
+            try:
+                midi_creator.generateMIDIFile(file_path, text)
+            except:
+                gi.popup_ok("Error: File didn't generate")
+            else:
+                gi.popup_ok("File generated successfully")
     elif event == "reproduce_file":
         file_path = values['midi_read_file_path']
         if file_path == "":
