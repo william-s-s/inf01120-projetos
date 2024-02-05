@@ -10,7 +10,7 @@ title = [
 column1 = [
     [
         gi.Text("Text file:", font=("System", 12)),
-        gi.In(size=(50, 1), enable_events=True, key="text_file_path"),
+        gi.In(size=(50, 1), enable_events=True, key="text_file_path", default_text="./input/text.txt"),
         gi.FileBrowse(file_types=(("Text Files", "*.txt"),))
     ],
     [
