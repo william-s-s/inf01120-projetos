@@ -161,3 +161,7 @@ cython_debug/
 
 # Removing docs folder inside TRABALHO_FINAL
 /*/docs
+
+# Removing input/output folder inside TRABALHO_FINAL
+/*/input
+/*/output
