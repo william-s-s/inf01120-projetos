@@ -1,5 +1,6 @@
 import PySimpleGUI as gi
 from MIDICreator import midi_creator
+from MIDIPlayer import midi_player
 
 gi.theme('Black')
 
@@ -49,7 +50,9 @@ column2 = [
         gi.FileBrowse(file_types=(("Midi files", "*.mid"),))
     ],
     [
-        gi.Button('Reproduce file', button_color=('white', 'firebrick3'), key="reproduce_file")
+        gi.Button('Reproduce file', button_color=('white', 'firebrick3'), key="reproduce_file"),
+        gi.Button('Pause reproduction', button_color=('white', 'firebrick3'), key="pause_file"),
+        gi.Button('Stop reproduction', button_color=('white', 'firebrick3'), key="stop_file")
     ],
 ]
 
@@ -98,7 +101,20 @@ while True:
         if file_path == "":
             gi.popup_ok("No file found")
         else:
-            pass
+            if file_path[-4:] != ".mid":
+                file_path = file_path + ".mid"
+            midi_player.setFilePath(file_path)
+            try:
+                midi_player.play()
+            except:
+                gi.popup_ok("No file found")
+    elif event == "pause_file":
+        if midi_player.playerIsPaused():
+            midi_player.unpause()
+        else:
+            midi_player.pause()
+    elif event == "stop_file":
+        midi_player.stop()
     elif event == "OK" or event == gi.WIN_CLOSED:
         break
 
