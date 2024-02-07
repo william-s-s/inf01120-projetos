@@ -1,5 +1,6 @@
 # Class that stores and manipulates the text
 class FreeTextInterface():
+    
     text: str = ''
 
     # Set the text obtained
