@@ -5,7 +5,23 @@ import ConfigReader
 
 # Class to create MIDI files from text
 class MIDICreatorInterface():
-    pass
+    
+    freetext: object
+    controller: object
+    file_manager: object
+    config: object
+
+    def setFreeText(self, freetext):
+        pass
+
+    def setController(self, controller):
+        pass
+
+    def setConfig(self, config):
+        pass
+
+    def generateMIDIFile(self, file_path, text):
+        pass
 
 class MIDICreator():
 
