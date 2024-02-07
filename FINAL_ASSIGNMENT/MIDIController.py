@@ -172,5 +172,3 @@ class MIDIController(MIDIControllerInterface):
         self.resetGlobalTimer()
         self.resetOctave()
         self.changeTempo(90)
-
-
