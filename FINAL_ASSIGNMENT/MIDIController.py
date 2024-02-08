@@ -70,6 +70,7 @@ class MIDIController(MIDIControllerInterface):
 
     midi_manager: object            # MIDIFileManagerInterface object
     bpm: int = 90                   # Beats per minute of the sound
+    default_bpm: int = 90           # Default beats per minute
     max_bpm: int = 250              # Max BPM permitted
     min_bpm: int = 90               # Min BPM permitted
     volume: int = 64                # Notes volume
@@ -169,4 +170,7 @@ class MIDIController(MIDIControllerInterface):
     def resetParameters(self):
         self.resetGlobalTimer()
         self.resetOctave()
-        self.changeTempo(90)
+        self.changeTempo(self.default_bpm)
+        self.bpm = self.default_bpm
+        self.last_note = 0
+        self.volume = self.default_volume
