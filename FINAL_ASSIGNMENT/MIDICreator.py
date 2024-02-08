@@ -5,40 +5,49 @@ import ConfigReader
 
 # Class to create MIDI files from text
 class MIDICreatorInterface():
-    
-    freetext: object
-    controller: object
-    file_manager: object
-    config: object
 
+    freetext: object        # FreeTextInterface object
+    controller: object      # MIDIControllerInterface object
+    file_manager: object    # MIDIFileManagerInterface object
+    config: object          # ConfigReaderInterface object
+
+    # Set the freetext object, to manipulate the text received
     def setFreeText(self, freetext):
         pass
 
+    # Set the controller object, to control MIDI parameters
     def setController(self, controller):
         pass
 
+    # Set the config object, to access the configuration dictionaries
     def setConfig(self, config):
         pass
 
+    # Generate a MIDI file from a text, and store it in the file
     def generateMIDIFile(self, file_path, text):
         pass
 
+# Class that implements MIDICreatorInterface
 class MIDICreator():
 
-    freetext: object
-    controller: object
-    file_manager: object
-    config: object
+    freetext: object        # FreeTextInterface object
+    controller: object      # MIDIControllerInterface object
+    file_manager: object    # MIDIFileManagerInterface object
+    config: object          # ConfigReaderInterface object
 
+    # Set the freetext object, to manipulate the text received
     def setFreeText(self, freetext):
         self.freetext = freetext
 
+    # Set the controller object, to control MIDI parameters
     def setController(self, controller):
         self.controller = controller
 
+    # Set the config object, to access the configuration dictionaries
     def setConfig(self, config):
         self.config = config
 
+    # Generate a MIDI file from a text, and store it in the file
     def generateMIDIFile(self, file_path, text):
         self.freetext.setFreeText(text)
         self.controller.midi_manager.setFilePath(file_path)
@@ -83,6 +92,7 @@ class MIDICreator():
             word = self.freetext.getCurrentWord()
         self.controller.midi_manager.closeFile()
 
+# Objects instantiations and configurations
 freetext = FreeText.FreeText()
 config = ConfigReader.ConfigReader()
 config.readConfig()

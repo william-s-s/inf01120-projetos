@@ -3,7 +3,7 @@ import json
 # Class to load MIDI configuration from a file
 class ConfigReaderInterface():
 
-    config: dict = {}
+    config: dict = {}   # Dict to store all configuration dictionaries
 
     # Read configuration
     def readConfig(self):
@@ -28,7 +28,7 @@ class ConfigReaderInterface():
 # Class that implements ConfigReaderInterface
 class ConfigReader():
 
-    config: dict = {}
+    config: dict = {}   # Dict to store all configuration dictionaries
 
     # Read configuration from config.json
     def readConfig(self):

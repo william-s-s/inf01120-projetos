@@ -1,15 +1,13 @@
 import random
-import math
 
 # Class that controls the MIDI parameters
 class MIDIControllerInterface():
 
-    midi_manager: object
-    bpm: int
-    volume: int
-    last_note: int
-    octave: int
-    global_timer: int = 0
+    midi_manager: object    # MIDIFileManagerInterface object
+    bpm: int                # Beats per minute of the sound
+    volume: int             # Notes volume
+    last_note: int          # Last note number
+    octave: int             # Current note octave
 
     # Set midi manager attribute
     def setMIDIManager(self, midi_manager):
@@ -70,19 +68,19 @@ class MIDIControllerInterface():
 # Class that implements MIDIControllerInterface
 class MIDIController(MIDIControllerInterface):
 
-    midi_manager: object
-    bpm: int = 90
-    max_bpm: int = 250
-    min_bpm: int = 90
-    volume: int = 64
-    default_volume: int = 64
-    max_volume: int = 127
-    last_note: int = 0
-    note_duration: int = 1000
-    global_timer: int = 0
-    octave: int = 4
-    max_octave: int = 8
-    min_octave: int = 0
+    midi_manager: object            # MIDIFileManagerInterface object
+    bpm: int = 90                   # Beats per minute of the sound
+    max_bpm: int = 250              # Max BPM permitted
+    min_bpm: int = 90               # Min BPM permitted
+    volume: int = 64                # Notes volume
+    default_volume: int = 64        # Default notes volume
+    max_volume: int = 127           # Max volume permitted
+    last_note: int = 0              # Last note number
+    note_duration: int = 1000       # Note duration in milliseconds
+    global_timer: int = 0           # Global timer to synchronize the MIDI tracks
+    octave: int = 4                 # Current note octave
+    max_octave: int = 8             # Max octave permitted
+    min_octave: int = 0             # Min octave permitted
 
     # Set midi manager attribute
     def setMIDIManager(self, midi_manager):

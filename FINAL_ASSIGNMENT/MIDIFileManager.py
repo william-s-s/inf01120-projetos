@@ -6,8 +6,8 @@ import os
 
 # Class that create and manipulate a MIDI file
 class MIDIFileManagerInterface():
-    file_path: str
-    file: typing.IO
+    file_path: str      # File path to store MIDI instructions
+    file: typing.IO     # IO object that represents a file
 
     # Set the MIDI file path
     def setFilePath(self, file_path):
@@ -25,11 +25,11 @@ class MIDIFileManagerInterface():
     def closeFile(self):
         pass
 
-    # Starts playing a note on the audio_track
+    # Starts playing a note
     def setNoteOn(self, note, velocity, time):
         pass
 
-    # Stops playing a note on the audio_track
+    # Stops playing a note
     def setNoteOff(self, note, velocity, time):
         pass
 
@@ -41,9 +41,11 @@ class MIDIFileManagerInterface():
     def changeTempo(self, bpm, time):
         pass
 
+# Class that implements MIDIFileManagerInterface
 class MIDIFileManager():
-    file_path: str
-    file: mido.MidiFile
+
+    file_path: str          # File path to store MIDI instructions
+    file: mido.MidiFile     # Mido MIDI File object
 
     # Set the MIDI file path
     def setFilePath(self, file_path):
@@ -85,18 +87,3 @@ class MIDIFileManager():
     # Change the tempo of the song
     def changeTempo(self, bpm=60, time=0):
         self.tempo_track.append(mido.MetaMessage('set_tempo', tempo=math.ceil(mido.bpm2tempo(bpm)/2), time=time))
-
-# midi_file_manager = MIDIFileManager()
-# midi_file_manager.setFilePath('.\output\song.mid')
-# midi_file_manager.openFile()
-# midi_file_manager.setNoteOn()
-# midi_file_manager.setNoteOff()
-# midi_file_manager.changeInstrument(instrument=10, time=1000)
-# midi_file_manager.setNoteOn()
-# midi_file_manager.setNoteOff()
-# midi_file_manager.changeTempo(bpm=120, time=2000)
-# midi_file_manager.setNoteOn()
-# midi_file_manager.setNoteOff()
-# midi_file_manager.setNoteOn()
-# midi_file_manager.setNoteOff()
-# midi_file_manager.closeFile()

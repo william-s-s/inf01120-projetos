@@ -2,12 +2,15 @@ import PySimpleGUI as gi
 from MIDICreator import midi_creator
 from MIDIPlayer import midi_player
 
+# Defining UI theme
 gi.theme('Black')
 
+# Title text
 title = [
     gi.Text("TextToMIDI", font=("System", 32))
 ]
 
+# First column creation, containing text input and text file path
 column1 = [
     [
         gi.Text("Text file:", font=("System", 12)),
@@ -22,6 +25,7 @@ column1 = [
     ]
 ]
 
+# Second column creation, generate and reproduce MIDI files
 column2 = [
     [
         gi.Text("Generate MIDI file", font=("System", 24)),
@@ -56,6 +60,7 @@ column2 = [
     ],
 ]
 
+# Defining layout based on title and columns declared
 layout = [
     [
         [
@@ -66,16 +71,21 @@ layout = [
             gi.Column(column2, vertical_alignment = 't')
     ]
 ]
+
+# Starting window object
 window = gi.Window("TextToMIDI", layout)
 
+# Program loop
 while True:
     event, values = window.read()
+    # Checking read_file button event
     if event == "read_file":
         try:
             with open(values['text_file_path'], 'r', encoding="utf-8") as text_file:
                 window['textbox'].update(value=values['textbox'] + text_file.read())
         except:
             gi.popup_ok("No file found")
+    # Checking generate_file button event
     elif event == "generate_file":
         folder = values['midi_save_folder']
         filename = values['midi_save_file']
@@ -96,6 +106,7 @@ while True:
                 gi.popup_ok("Error: File didn't generate")
             else:
                 gi.popup_ok("File generated successfully")
+    # Checking reproduce file button event
     elif event == "reproduce_file":
         file_path = values['midi_read_file_path']
         if file_path == "":
@@ -108,14 +119,18 @@ while True:
                 midi_player.play()
             except:
                 gi.popup_ok("No file found")
+    # Checking pause_file reproduction button event
     elif event == "pause_file":
         if midi_player.playerIsPaused():
             midi_player.unpause()
         else:
             midi_player.pause()
+    # Checking stop_file reproduction button event
     elif event == "stop_file":
         midi_player.stop()
+    # Exit program when closing window
     elif event == "OK" or event == gi.WIN_CLOSED:
         break
 
+# Close window
 window.close()

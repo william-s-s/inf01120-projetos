@@ -44,10 +44,9 @@ class MIDIPlayer(MIDIPlayerInterface):
     file_path: str = "./output/output.mid" # File path to reproduce
     volume: float = 1                      # Volume of the mixer
     freq: int = 44100                      # Sound frequency
-    bitsize: int = -16
-    channels: int = 2
-    buffer: int = 1024
-    volume: float = 1
+    bitsize: int = -16                     # Bit depth
+    channels: int = 2                      # Sound channels, 1 for mono, 2 for stereo
+    buffer: int = 1024                     # Sample size
 
     # Set a file path to reproduce
     def setFilePath(self, file_path):
@@ -83,6 +82,7 @@ class MIDIPlayer(MIDIPlayerInterface):
     def playerIsPaused(self):
         return not pygame.mixer.music.get_busy()
 
+# Object instantiation and configuration
 midi_player = MIDIPlayer()
 midi_player.initMixer()
 midi_player.setVolume(1)

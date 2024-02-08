@@ -1,7 +1,7 @@
 # Class that stores and manipulates the text
 class FreeTextInterface():
     
-    text: str = ''
+    text: str = ''      # Text to be manipulated
 
     # Set the text obtained
     def setFreeText(self, text):
@@ -15,11 +15,11 @@ class FreeTextInterface():
     def getFreeText(self):
         pass
 
-    # Get char in the current position
+    # Get word in the current position
     def getCurrentWord(self):
         pass
 
-    # Go to the next character of the text
+    # Go to the next word of the text
     def goToNextWord(self):
         pass
 
@@ -65,20 +65,3 @@ class FreeText(FreeTextInterface):
         except:
             new_whitespace = len(self.text)
         return new_whitespace
-
-# free_text = FreeText()
-# free_text.setFreeText('Eu amo você\nEu amo você')
-# free_text.goToFirstWord()
-# print(free_text.getCurrentWord())
-# free_text.goToNextWord()
-# print(free_text.getCurrentWord())
-# free_text.goToNextWord()
-# print(free_text.getCurrentWord())
-# free_text.goToNextWord()
-# print(free_text.getCurrentWord())
-# free_text.goToNextWord()
-# print(free_text.getCurrentWord())
-# free_text.goToNextWord()
-# print(free_text.getCurrentWord())
-# free_text.goToFirstWord()
-# print(free_text.getCurrentWord())
